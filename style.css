@@ -1,0 +1,52 @@
+
+        *body {
+            font-family: Arial, sans-serif;
+            background-color: #332d2d;
+        }
+        
+        .container1 {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #3d4141;
+            border-radius: 5px;
+            border: 1px solid#30aac9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20%;
+        }
+        
+        input, button {
+            align-items: center;
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #5facb9;
+            border-radius: 3px;
+        }
+        
+        button {
+            background-color: #30aac9;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        #weatherInfo {
+            font-size: 18px;
+            color: #fff; /* Change text color */
+            margin-top: 20px; /* Add margin */
+            text-align: center;
+        }
+        
+        #weatherInfo strong {
+            font-size: 24px; /* Increase font size for city and country */
+        }
+
+        #weatherInfo .temperature {
+            font-size: 22px; /* Increase font size for temperature */
+            margin-top: 10px; /* Add margin */
+        }
+
+        #weatherInfo .description {
+            font-size: 20px; /* Increase font size for weather description */
+            margin-top: 10px; /* Add margin */
+        }
