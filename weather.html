@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="weather.css">
+    <title>Weather</title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #332d2d;
+        }
+        
+        .container1 {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #3d4141;
+            border-radius: 5px;
+            border: 1px solid#30aac9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20%;
+        }
+        
+        input, button {
+            align-items: center;
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #5facb9;
+            border-radius: 3px;
+        }
+        
+        button {
+            background-color: #30aac9;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        #weatherInfo {
+            font-size: 18px;
+            color: #fff; /* Change text color */
+            margin-top: 20px; /* Add margin */
+            text-align: center;
+        }
+        
+        #weatherInfo strong {
+            font-size: 24px; /* Increase font size for city and country */
+        }
+
+        #weatherInfo .temperature {
+            font-size: 22px; /* Increase font size for temperature */
+            margin-top: 10px; /* Add margin */
+        }
+
+        #weatherInfo .description {
+            font-size: 20px; /* Increase font size for weather description */
+            margin-top: 10px; /* Add margin */
+        }
+        </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <!--font awesome cdn link -->   
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!--  custom css file link-->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="script.js">
+
+<!-- custom js filr link-->
+<script src="script.js" defer></script>
+
+
+
+</head>
+<body>
+    
+    <!--header section starts here-->
+
+    <header class="header">
+
+        <h1 style="font-size: 3.8rem; color: aliceblue;" style="left: 3.5rem;">JK Travels</h1>
+       
+        <nav class="navbar">
+            <a href="home.html"> HOME</a>
+            <a href="about.html"> ABOUT</a>
+            <a href="destinations.html"> DESTINATION</a>
+            <a href="services.html"> SERVICES</a>
+            <a href="weather.html"> WEATHER</a>
+            <a href="gallery.html"> GALLERY</a>
+
+            
+        <a href="destinations.html" class="btn">Book now</a>
+        </nav>
+
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+
+    </header>
+    <div class="container1">
+        <h1 align="center">Weather</h1>
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weatherInfo"></div>
+    </div>
+    <script>
+
+function getWeather() {
+    const city = document.getElementById('cityInput').value;
+    const apiKey = '86bf1de55ad62970fa497d898c39534e'; // Replace with your API key
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            const weatherInfo = document.getElementById('weatherInfo');
+            weatherInfo.innerHTML = `
+                <strong>${data.name}, ${data.sys.country}</strong><br>
+                Temperature: ${data.main.temp}°C<br>
+                Weather: ${data.weather[0].description}
+            `;
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+        });
+}
+
+    </script>
+
+
+
+
+</body>
+</html>
